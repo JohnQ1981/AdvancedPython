@@ -7,4 +7,7 @@ total = ((bill_paid * tip_percentage / 100) + (bill_paid))
 tip_percentage = (bill_paid * tip_percentage / 100)
 print(f"Total will including the tip percentage is: {round(total,2)}, and Tip paid {round(tip_percentage,2)}")
 print(f"Each Person should pay: ${round(each_pays,2)}")
+final_amount ="{:.2f}".format(each_pays)
+print(f"Each Person should pay: ${final_amount}")
+
 
