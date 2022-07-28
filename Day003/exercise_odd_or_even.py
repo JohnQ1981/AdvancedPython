@@ -14,9 +14,6 @@
 # The modulo is written as a percentage sign (%) in Python. It gives you the remainder after a division.
 
 # e.g. 6 ÷ 2 = 3 with no remainder.
-
-
-
 print("Welcome to ODD or EVEN finder")
 number = input("Enter Number and we will tell if it is odd or even ")
 if number.isalpha():
