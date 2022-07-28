@@ -37,13 +37,16 @@ print(art.text2art("TO", font='block'))
 print(art.text2art("Treasure", font='block'))
 print(art.text2art("ISLAND", font='block'))
 print("Your mission is to find the treasure")
-left_right = input("You are at a cross road, Where do you want to go? Type 'left' or 'right' \n")
-if left_right == "right" or left_right != 'left':
-    print("You fell into a hole. Game Over!")
-elif left_right == 'left':
-    swim_wait = input("You came to a lake. There is an island in the middle of the lake. Type 'wait' to wait for a boat. Type 'swim' to swim across. \n")
+while True:
+    left_right = input("You are at a cross road, Where do you want to go? Type 'left' or 'right' \n")
+    if left_right == "right" or left_right != 'left':
+        print("You fell into a hole. Game Over!")
+        break
+    elif left_right == 'left':
+        swim_wait = input("You came to a lake. There is an island in the middle of the lake. Type 'wait' to wait for a boat. Type 'swim' to swim across. \n")
     if swim_wait == 'swim' or swim_wait != 'wait':
         print("You were attacked by trout. Game Over!")
+        break
     elif swim_wait == 'wait':
         select_color = input("You arrived at the Island unharmed. There is a house with 3 door. One red, one yellow and one blue. Which color do you choose? \n")
         if select_color == 'red':
@@ -54,5 +57,6 @@ elif left_right == 'left':
             print("You won!")
         else:
             print("You chose a door that doesn't exist. Game Over!")
+            break
 
 
