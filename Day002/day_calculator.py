@@ -18,9 +18,9 @@ age = int(age)
 actual_days = 90 * 365
 actual_weeks = 90 * 52
 actual_months = 90 *12
-# print(actual_days)
-# print(actual_weeks)
-# print(actual_months)
+#print(actual_days)
+#print(actual_weeks)
+#print(actual_months)
 days_left = actual_days - (age * 365)
 weeks_left = actual_weeks - (age * 52)
 months_left = actual_months - (age *12)
