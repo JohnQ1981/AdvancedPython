@@ -65,13 +65,13 @@ while True:
     user = input("Enter your choice as 'rock, 'paper' or 'scissors' \n").lower()
     if user == 'rock':
             user = rock
-            print(rock)
+            #print(rock)
     elif user == 'paper':
             user = paper
-            print(paper)
+            #print(paper)
     elif user == 'scissors':
             user = scissors
-            print(scissors)
+            #print(scissors)
     else:
         print("Try again")
 
