@@ -30,7 +30,7 @@ scissors = '''
 game_images = [rock, paper, scissors]
 
 user_choice = int(input("What do you choose? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n"))
-if user_choice > len(game_images):
+if user_choice > len(game_images) or user_choice < 0:
     print("You entered invalid number out of index")
 elif user_choice <= len(game_images)-1:
     print(game_images[user_choice])
