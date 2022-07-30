@@ -34,6 +34,10 @@ while True:
         print(password)
     print("*"*100)
     print(f"Your Password is {password}")
+    password_str =""
+    for c in password:
+        password_str += c
+    print(f"Your password is {password_str}")
     end_or_no = input(" Do you want to generate more or quit? Type 'Y' to continue and 'q' to quit ")
     if end_or_no == 'q' or end_or_no == 'Q':
         break
