@@ -36,3 +36,4 @@ for c in students:
     sum += int(c)
 average = round(sum/len(students))
 print(f"Total sum is :{sum} and Average is {average}")
+
