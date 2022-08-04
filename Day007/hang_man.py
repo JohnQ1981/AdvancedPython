@@ -11,38 +11,48 @@ print('''_____
       _____,-\__..__|_____Pr59''')
 print(art.text2art("Hello", font='block'))
 print(art.text2art("Wlcm", font ='block'))
-words = ['Alican', 'Velican', 'Delican', 'Talican', 'Hilola','Abdurrahmon']
+words = ['alican', 'velicana', 'delicana', 'talican', 'hilola','abdurrahmon']
 ran = random.choice(words)
 print(ran)
 kelime =''
-#kelime = ran.replace("", "*")
+blank_list = []
+display = []
+for c in ran:
+  blank_list.append("_")
+  display += "_"
+print(blank_list, len(blank_list), display)
 for c in ran:
   kelime += "_"
 print(kelime, len(kelime))
-# word_blank = str(len(kelime))
-# print(word_blank)
-# print(kelime)
-# hesap = 0
-while True:
+countb = 0
+while countb < len(ran):
   guess_word = input("Enter Letter of the Word Generated1 ")
+  countb += 1
   if guess_word in ran: 
     print(f"{kelime} su ana kadar {ran[ran.find(guess_word)]} and index is {ran.find(guess_word)}")
     kelime = kelime[:ran.find(guess_word)] + guess_word + kelime[ran.find(guess_word)+1:]
-    #kelime[int(ran.find(guess_word))] = guess_word
-    #kelime = kelime.replace(int(ran.find(guess_word)),ran[ran.find(guess_word)])
+  for c in ran:
+    if guess_word in ran:
+      blank_list.insert(ran.find(guess_word),guess_word)
+      blank_list.pop(ran.find(guess_word)+1)
+  print(blank_list, len(blank_list))
   print(f"{kelime}")
-  if kelime == ran:
+  
+  for position in range(len(ran)):
+    letter = ran[position]
+    if letter == guess_word:
+      display[position] = letter
+  print(display)  
+  for c in ran:
+    if c == guess_word:
+      print("Right")
+    else:
+      print("Wrong")
+  guess = list(ran)
+  print(guess)
+  print(f"Count is :{countb}")
+  if kelime == ran or display == guess:
+    print("You Won")
     break
-  # if kelime == ran:
-  #   print("You Won")
-  # else:
-  #   guess_word = input("Enter Letter of the Word Generated2 ")
-  # if guess_word != ran:
-  #   hesap += 1
-  # if hesap == len(ran):
-  #     print("Game Over")
-  # elif hesap < len(ran):
-  #     guess_word = input("Enter Letter of the Word Generated3")
-  # else:
-  #     print('You Won!')
-
+  elif display != guess and countb == len(ran):
+    print("You lost")
