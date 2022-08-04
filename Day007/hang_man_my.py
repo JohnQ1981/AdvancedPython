@@ -1,5 +1,7 @@
 import random
 import art
+import hangman_art
+import hangman_words
 print('''_____
         |   D
         |   |
@@ -9,9 +11,11 @@ print('''_____
           |_'(-------)  '-'
              |       /
       _____,-\__..__|_____Pr59''')
+print(hangman_art.logo)
 print(art.text2art("Hello", font='block'))
 print(art.text2art("Wlcm", font ='block'))
-words = ['alican', 'velica', 'delica', 'talica', 'hilola','salih']
+#words = ['alican', 'velica', 'delica', 'talica', 'hilola','salih']
+words = hangman_words.word_list
 ran = random.choice(words)
 print(ran, len(ran))
 display = []
@@ -19,62 +23,7 @@ for c in ran:
   display += "_"
 print(display)
 countb = 0
-stages = ['''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-''', '''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-''']
+
 end_game = False
 lives = 6
 while not end_game:
@@ -89,7 +38,7 @@ while not end_game:
 
   if guess_word not in ran:
       lives -=1
-      print(f"{stages[lives]}")
+      print(f"{hangman_art.stages[lives]}")
       if lives == 0 :
         end_game = True
         print("You Lost")
