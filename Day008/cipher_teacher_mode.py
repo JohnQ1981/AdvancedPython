@@ -1,10 +1,18 @@
+#import artt
+import art
+import math
+print(art.text2art("CAESAR", font='block'))
+print(art.text2art("cipher", font='block'))
+#print(artt.logo)
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z','a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
 while True:
     direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
     text = input("Type your message:\n").lower()
     shift = int(input("Type the shift number:\n"))
-
+    # if shift > len(alphabet):
+    #     shift = math.floor(shift % 52/2)
+    #print(len(alphabet), shift)
 #TODO-1: Create a function called 'encrypt' that takes the 'text' and 'shift' as inputs.
     def encrypt(plain_text, shift_amount):
         cipher_text = ""
@@ -39,13 +47,17 @@ while True:
             print(f"The decoded text is {cipher_text}")
     def caesar(start_text, shift_amount, cipher_direction):
         end_text = ''
+        if shift_amount > len(alphabet)/2:
+            shift_amount = math.floor(shift % 52/2)
         if cipher_direction == 'decode':
                 shift_amount *= -1
         for letter in start_text:
-            position = alphabet.index(letter)
-            new_position = position + shift_amount
-            end_text += alphabet[new_position]
-            
+            if letter in alphabet:
+                position = alphabet.index(letter)
+                new_position = position + shift_amount
+                end_text += alphabet[new_position]
+            else :
+                end_text += letter
         print(f"The {cipher_direction}d text is {end_text}")
 
 
@@ -69,8 +81,9 @@ while True:
     # elif direction == 'decode':
     #     decrypt(cipher_text=text, shift_amount= shift)
     # else:        
-    end_it = input("Enter 'q' to end ")
+    end_it = input("Enter 'q' to end or blank to continue ")
     if end_it == 'q' or end_it == 'Q':
+        print(art.text2art("bye", font='block'))
         break
     else:
         continue
