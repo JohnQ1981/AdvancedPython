@@ -37,12 +37,16 @@ while True:
                 new_position = position - shift_amount
                 cipher_text += alphabet[new_position]
             print(f"The decoded text is {cipher_text}")
-        # else:        
-        #     end_it = input("Enter 'q' to end ")
-        #     if end_it == 'q' or end_it == 'Q':
-        #         break
-        #     else:
-        #         continue
+    def caesar(start_text, shift_amount, cipher_direction):
+        end_text = ''
+        if cipher_direction == 'decode':
+                shift_amount *= -1
+        for letter in start_text:
+            position = alphabet.index(letter)
+            new_position = position + shift_amount
+            end_text += alphabet[new_position]
+            
+        print(f"The {cipher_direction}d text is {end_text}")
 
 
     #TODO-2: Inside the 'encrypt' function, shift each letter of the 'text' forwards in the alphabet by the shift amount and print the encrypted text.  
@@ -58,7 +62,8 @@ while True:
     ##🐛Bug alert: What happens if you try to encode the word 'civilization'?🐛
 
 #TODO-3: Call the encrypt function and pass in the user inputs. You should be able to test the code and encrypt a message. 
-    all_in_one(plain_text = text, shift_amount = shift, direction = direction)
+    #all_in_one(plain_text = text, shift_amount = shift, direction = direction)
+    caesar(start_text=text, shift_amount=shift,cipher_direction=direction)
     # if direction == 'encode':
     #     encrypt(plain_text=text, shift_amount= shift)
     # elif direction == 'decode':
