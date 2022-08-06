@@ -11,7 +11,7 @@ student_scores = {
 student_grades = {}
 
 #TODO-2: Write your code below to add the grades to student_grades.👇
-for k in student_scores:
+for k  in student_scores:
   if student_scores[k] <= 70:
     student_grades[k] = 'Fail'
     #student_scores[k] = 'Fail'

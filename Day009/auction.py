@@ -6,6 +6,7 @@ print("Welcome to the secret auction program.")
 lp = True
 bidders = {}
 actual_bidders = []
+max_bid = 0
 #count = 0
 while lp:
     user_name = input("What is your name?: ")
@@ -14,13 +15,15 @@ while lp:
     #bidders["Bid Amount"] = bid_amount
     #actual_bidders.append(bidders)
     #count += 1
-    max_bid = bidders[]
+    
     more_bidders = input("Are there any other bidders? Type 'yes' or'no .")
     if more_bidders == 'yes':
         clear()
     elif more_bidders == 'no':
-        for bids in bidders:
-
+        for bids, values in bidders.items():
+            if values > max_bid:
+                max_bid = values
+        print(f"The winner is: {max_bid} and name is: {bidders.keys()} ")
         lp = False
     else:
         print("incorrect input,try again!")
