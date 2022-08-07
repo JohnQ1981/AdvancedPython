@@ -9,13 +9,19 @@ actual_bidders = []
 def find_highest_bidder(bidding_record):
   highest_bid = 0
   winner = ""
+  min_bid = 0
   # bidding_record = {"Angela": 123, "James": 321}
-  for bidder in bidding_record:
-    bid_amount = bidding_record[bidder]
-    if bid_amount > highest_bid: 
-      highest_bid = bid_amount
+  for bidder ,values in bidding_record.items():
+    #bid_amount = bidding_record[bidder]
+    if values > highest_bid: 
+      highest_bid = values
+      min_bid = highest_bid
       winner = bidder
+    if values < min_bid :
+        min_bid = values
+        looser = bidder
   print(f"The winner is {winner} with a bid of ${highest_bid}")
+  print(f"The lowest is {looser} with a bid of ${min_bid}")
 while lp:
     user_name = input("What is your name?: ")
     bid_amount = int(input("What is your bid?: $ "))    
