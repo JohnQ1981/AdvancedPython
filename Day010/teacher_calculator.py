@@ -34,12 +34,15 @@ def calculator():
     calculation_function = operations[operation_symbol]
     answer = calculation_function(num1, num2)
     print(f"{num1} {operation_symbol} {num2} = {answer}")
+    user_input = input(f"Type 'y' to continue calculating with {answer}, or type 'n' to start a new calculation: or leave blank to quit")
 
-    if input(f"Type 'y' to continue calculating with {answer}, or type 'n' to start a new calculation: ") == 'y':
+    if user_input == 'y':
       num1 = answer
-    else:
+    elif user_input == 'n' :
       should_continue = False
       clear()
       calculator()
+    else:
+        break
 
 calculator()
