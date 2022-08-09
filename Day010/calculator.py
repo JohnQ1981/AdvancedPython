@@ -16,7 +16,7 @@ def divide(n1, n2):
         return "Cannot divide by zero!"
 def calculator():
   print(logo)
-
+calculator()
 operations = {"+": add, 
         "-": subtract, 
         "*": multiply, 
@@ -35,19 +35,19 @@ while True:
 
 
     print(f"{num1} {operator} {num2} = {first_answer}")
-    operator = input("pick another operation:")
-    num3 = int(input("What is the next number?"))
+    operator = input("pick another operation:\n")
+    num3 = int(input(f"What is the next number? calculating with {first_answer}.:"))
     calculation_function = operations[operator]
     second_answer = calculation_function(first_answer, num3)
     print(f"{first_answer} {operator} {num3} = {second_answer}")
-    end_it = input("Enter 'q' to end ")
+    end_it = input(f"Enter 'q' to end or continue  ")
     if end_it == 'q' or end_it == 'Q':
         break
     else:
         clear()
         calculator()
         continue
-calculator()
+
 # if operator == "+":
 #     print(f"{num1} {operator} {num2} = {add(num1,num2)}")
 # elif operator == "-":
